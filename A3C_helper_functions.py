@@ -131,6 +131,8 @@ def display_test(sess,network):
         total_steps += 1
 
     print(total_steps,total_reward)
+
+    return(frames)
     
 def Display_example_frames(fig,ax):
     
