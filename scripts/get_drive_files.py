@@ -4,6 +4,8 @@ from pydrive.drive import GoogleDrive
 from google.colab import auth
 from oauth2client.client import GoogleCredentials
 
+
+
 auth.authenticate_user()
 gauth = GoogleAuth()
 gauth.credentials = GoogleCredentials.get_application_default()
@@ -16,7 +18,7 @@ if len(sys.argv) > 1:
 else:
   drive_folder = 'Reinforcement_Learning-101-demo'
 
-drive_folder = drive.ListFile({'q': "title = '"+str(drive_folder)"+'"}).GetList()
+drive_folder = drive.ListFile({'q': "title = '"+str(drive_folder)+"'"}).GetList()
 
 ignore = ['.ipynb_checkpoints','__pycache__','core']
 
