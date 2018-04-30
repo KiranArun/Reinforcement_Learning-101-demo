@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import tensorflow as tf
 import scipy.signal
-import cv2,time,gym,os
+import cv2,time,gym,os,sys
 
 # helper function to get name of logdir
 # model logdir will be similar to 'run_01-lr_1e-5-nw_16-tmax_50'
