@@ -160,6 +160,9 @@ def create_gameplay_video(frames,figsize):
       return(frame,)
 
     def animate(i):
+      if i % 10 == 0:
+        sys.stdout.write('\r'+str(round(100.*i/frames.shape[0],2))+'%')
+        sys.stdout.flush()
         
       frame.set_data(frames[i])
       return(frame,)
