@@ -123,7 +123,7 @@ def display_test(sess,network):
         raw_s1 = preprocess_frame(unprocessed_s1).reshape(1,-1)
         s = np.maximum(raw_s,raw_s1)
         
-        frames = np.append(frames,np.mean(np.maximum(unprocessed_s,unprocessed_s1),axis=-1))
+        frames = np.append(frames,np.expand_dims(np.mean(np.maximum(unprocessed_s,unprocessed_s1),axis=-1),axis=0),axis=0)
 
         raw_s = raw_s1
         unprocessed_s = unprocessed_s1
@@ -149,8 +149,8 @@ def Display_example_frames(fig,ax):
     ax[1].set_title('Processed Frame (this is what we input to our neural net)')
 
 
-def create_gameplay_video(frames):
-    fig, ax = plt.subplots()
+def create_gameplay_video(frames,figsize):
+    fig, ax = plt.subplots(figsize=figsize)
     ax.grid(False)
 
     frame = ax.imshow(frames[0])
