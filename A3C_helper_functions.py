@@ -1,8 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 import tensorflow as tf
 import scipy.signal
-import cv2,time,gym,os
+import cv2,time,gym,os,sys
 
 # helper function to get name of logdir
 # model logdir will be similar to 'run_01-lr_1e-5-nw_16-tmax_50'
@@ -97,7 +98,7 @@ def test(sess,network):
     return(total_steps,total_reward)
 
 # run 1 episode with the global network and plot the frames
-def display_test(sess,network,fig,ax):
+def display_test(sess,network):
     env = gym.make('SpaceInvaders-v4')
     init_frame = env.reset()
     raw_s = preprocess_frame(init_frame).reshape(1,-1)
@@ -107,6 +108,7 @@ def display_test(sess,network,fig,ax):
     d = False
     total_reward = 0
     total_steps = 0
+    frames = np.expand_dims(np.mean(unprocessed_s,axis=-1),axis=0)
 
     while d == False:
 
@@ -121,8 +123,7 @@ def display_test(sess,network,fig,ax):
         raw_s1 = preprocess_frame(unprocessed_s1).reshape(1,-1)
         s = np.maximum(raw_s,raw_s1)
         
-        ax.imshow(np.maximum(unprocessed_s,unprocessed_s1))
-        fig.canvas.draw()
+        frames = np.append(frames,np.expand_dims(np.mean(np.maximum(unprocessed_s,unprocessed_s1),axis=-1),axis=0),axis=0)
 
         raw_s = raw_s1
         unprocessed_s = unprocessed_s1
@@ -130,6 +131,8 @@ def display_test(sess,network,fig,ax):
         total_steps += 1
 
     print(total_steps,total_reward)
+
+    return(frames)
     
 def Display_example_frames(fig,ax):
     
@@ -144,3 +147,28 @@ def Display_example_frames(fig,ax):
 
     ax[0].set_title('Raw Frame (this is what the environment outputs)')
     ax[1].set_title('Processed Frame (this is what we input to our neural net)')
+
+
+def create_gameplay_video(frames,figsize):
+    fig, ax = plt.subplots(figsize=figsize)
+    ax.grid(False)
+
+    frame = ax.imshow(frames[0])
+
+    def init():
+      frame.set_data(frames[0])
+      return(frame,)
+
+    def animate(i):
+      if i % 10 == 0:
+        sys.stdout.write('\r'+str(round(100.*i/frames.shape[0],2))+'%')
+        sys.stdout.flush()
+        
+      frame.set_data(frames[i])
+      return(frame,)
+
+    anim = animation.FuncAnimation(fig, animate, init_func=init,
+                                   frames=frames.shape[0], interval=80, 
+                                   blit=True)
+
+    return(anim)
