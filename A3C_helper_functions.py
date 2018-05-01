@@ -108,7 +108,7 @@ def display_test(sess,network):
     d = False
     total_reward = 0
     total_steps = 0
-    frames = np.expand_dims(np.mean(unprocessed_s,axis=-1),axis=0)
+    frames = np.expand_dims(unprocessed_s,axis=0)
 
     while d == False:
 
@@ -121,7 +121,7 @@ def display_test(sess,network):
         raw_s1 = preprocess_frame(unprocessed_s1).reshape(1,-1)
         s = np.maximum(raw_s,raw_s1)
         
-        frames = np.append(frames,np.expand_dims(np.mean(np.maximum(unprocessed_s,unprocessed_s1),axis=-1),axis=0),axis=0)
+        frames = np.append(frames,np.expand_dims(np.maximum(unprocessed_s,unprocessed_s1),axis=0),axis=0)
 
         raw_s = raw_s1
         unprocessed_s = unprocessed_s1
