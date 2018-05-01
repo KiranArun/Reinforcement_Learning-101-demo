@@ -1,9 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
 import tensorflow as tf
 import scipy.signal
 import cv2,time,gym,os,sys
+from matplotlib import rc, animation
+from google.colab import files
+
 
 # helper function to get name of logdir
 # model logdir will be similar to 'run_01-lr_1e-5-nw_16-tmax_50'
@@ -128,7 +130,7 @@ def display_test(sess,network):
         total_reward += r
         total_steps += 1
 
-    print(total_steps,total_reward)
+    print('Steps:',total_steps,'Reward:',total_reward)
 
     return(frames)
     
@@ -150,7 +152,7 @@ def Display_example_frames(fig,ax):
     ax[1].set_title('Processed Frame (this is what we input to our neural net)')
 
 
-def create_gameplay_video(frames,figsize):
+def create_gameplay_video(frames,figsize,save=False):
     fig, ax = plt.subplots(figsize=figsize)
     ax.grid(False)
     ax.axis('off')
@@ -169,5 +171,10 @@ def create_gameplay_video(frames,figsize):
     anim = animation.FuncAnimation(fig, animate, init_func=init,
                                    frames=frames.shape[0], interval=100, 
                                    blit=True)
+
+    if save == True:
+        rc('animation', embed_limit=20)
+        anim.save('video.mp4', writer="ffmpeg")
+        files.download('video.mp4')
 
     return(anim)
