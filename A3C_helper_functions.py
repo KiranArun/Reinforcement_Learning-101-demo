@@ -142,6 +142,9 @@ def Display_example_frames(fig,ax):
     for i in range(100):
         raw_frame,_,_,_ = env.step(env.action_space.sample())
 
+    for axes in ax:
+        axes.grid(False)
+
     ax[0].imshow(raw_frame)
     ax[1].imshow(preprocess_frame(raw_frame),cmap='binary')
 
