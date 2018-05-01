@@ -61,7 +61,7 @@ def end_training_episode(episode_history,episodes_history,worker_episode_count,w
     worker_episode_count += 1
     episodes_history = np.append(episodes_history, [[episode_history_array[:,0].size,episode_reward]], axis=0)
                 
-    if str(worker_name) == 'worker_0' and worker_episode_count % 200 == 0:
+    if str(worker_name) == 'worker_0' and worker_episode_count % 250 == 0:
         saver.save(sess, os.path.join(run_logdir, "model.ckpt"), worker_episode_count)
         print('Saved model, checkpoint:', worker_episode_count)
         
@@ -112,8 +112,6 @@ def display_test(sess,network):
 
     while d == False:
 
-        plt.cla()
-
         actions, current_lstm_states = sess.run([network.policy,network.lstm_state],
                                                    feed_dict={network.inputs:s,
                                                           network.input_state[0]:current_lstm_states[0],
@@ -155,6 +153,7 @@ def Display_example_frames(fig,ax):
 def create_gameplay_video(frames,figsize):
     fig, ax = plt.subplots(figsize=figsize)
     ax.grid(False)
+    ax.axis('off')
 
     frame = ax.imshow(frames[0])
 
@@ -163,15 +162,12 @@ def create_gameplay_video(frames,figsize):
       return(frame,)
 
     def animate(i):
-      if i % 10 == 0:
-        sys.stdout.write('\r'+str(round(100.*i/frames.shape[0],2))+'%')
-        sys.stdout.flush()
         
       frame.set_data(frames[i])
       return(frame,)
 
     anim = animation.FuncAnimation(fig, animate, init_func=init,
-                                   frames=frames.shape[0], interval=80, 
+                                   frames=frames.shape[0], interval=100, 
                                    blit=True)
 
     return(anim)
