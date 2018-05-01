@@ -3,6 +3,7 @@
 apt update
 
 apt install cmake
+apt install ffmpeg
 
 pip3 install gym
 pip3 install gym[atari]
