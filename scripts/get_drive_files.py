@@ -40,8 +40,7 @@ def retrieve_folder_files(path_to_folder, folder):
       if file['mimeType'][-6:] != 'folder':
                 
         fname = os.path.join(os.path.join(path_to_folder, folder['title']),file['title'])
-        print('Getting file:', fname)
-                
+
         f_ = drive.CreateFile({'id': file['id']})
         f_.GetContentFile(fname)
       

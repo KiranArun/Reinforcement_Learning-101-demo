@@ -2,10 +2,10 @@
 
 apt update
 
-apt install cmake
-apt install ffmpeg
+apt install cmake >/dev/null
+apt install ffmpeg >/dev/null
 
-pip3 install gym
-pip3 install gym[atari]
+pip3 install gym >/dev/null
+pip3 install gym[atari] >/dev/null
 
-pip3 install 'opencv-contrib-python==3.3.0.9'
+pip3 install 'opencv-contrib-python==3.3.0.9' >/dev/null
