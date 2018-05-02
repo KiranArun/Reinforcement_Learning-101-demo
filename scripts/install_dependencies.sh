@@ -1,11 +1,16 @@
 #!/bin/bash
 
+echo 'Updating...'
 apt update
 
-apt install cmake >/dev/null
-apt install ffmpeg >/dev/null
+echo 'Installing cmake...'
+apt install -qq cmake
+echo 'Installing ffmpeg...'
+apt install -qq ffmpeg
 
-pip3 install gym >/dev/null
-pip3 install gym[atari] >/dev/null
+echo 'Installing gym...'
+pip3 -q install gym
+pip3 -q install gym[atari]
 
-pip3 install 'opencv-contrib-python==3.3.0.9' >/dev/null
+echo 'Installing opencv...'
+pip3 -q install 'opencv-contrib-python==3.3.0.9'
