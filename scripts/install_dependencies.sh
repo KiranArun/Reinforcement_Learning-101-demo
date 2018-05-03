@@ -1,12 +1,12 @@
 #!/bin/bash
 
 echo 'Updating...'
-apt update
+apt update > /dev/null
 
 echo 'Installing cmake...'
-apt install -qq cmake
+apt install cmake > /dev/null
 echo 'Installing ffmpeg...'
-apt install -qq ffmpeg
+apt install ffmpeg > /dev/null
 
 echo 'Installing gym...'
 pip3 -q install gym
