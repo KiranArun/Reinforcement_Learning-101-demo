@@ -114,6 +114,10 @@ def display_test(sess,network):
 
     while d == False:
 
+        if total_steps % 20 == 0:
+            sys.stdout.write('\r'+str(total_steps)+' frames')
+            sys.stdout.flush()
+
         actions, current_lstm_states = sess.run([network.policy,network.lstm_state],
                                                    feed_dict={network.inputs:s,
                                                           network.input_state[0]:current_lstm_states[0],
