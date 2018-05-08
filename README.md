@@ -12,7 +12,7 @@ These notebooks are designed for a workshop and to work inside [google colaborat
    
 ### Instructions for running:
 1. Download or clone the repository
-    - if you downloaded the ZIP, extract on your local machine
+    - if you downloaded the ZIP, extract on your local machine and rename the folder to the name of this repo
 2. Go to google drive, and upload this folder from your local machine
 3. From Drive, open a notebook with Colaboratory (double-click then choose Connected apps Colaboratory)
     - If Colaboratory is not shown, you'll have to first add it from Open With, then search Colab, then connect.
