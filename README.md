@@ -1,6 +1,6 @@
 # Reinforcement Learning 101
 
-This is a self-contained laboratory session, of a Reinforcment Learning model (A3C) playing [Atari Space Invaders](https://gym.openai.com/envs/SpaceInvaders-v0/).
+This is a self-contained laboratory session, of a Reinforcement Learning model (A3C) playing [Atari Space Invaders](https://gym.openai.com/envs/SpaceInvaders-v0/).
 
 These Python based notebooks are designed to work inside Google's free research and education tool [Colaboratory](https://colab.research.google.com),  which requires only a Google account. Check out their [FAQ](https://research.google.com/colaboratory/faq.html).
 
