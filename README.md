@@ -14,6 +14,9 @@ The human interface to the underlying [Tensorflow](https://www.tensorflow.org/) 
     
 2. A3C_workshop_part2.ipynb will train a model, saving checkpoints and logging to tensorboard
     - the documentation will teach how updating the model works and more about RL
+    - training on Colaboratory isn't recommended
+        - the model checkpoints can be difficult to download as the files might be too large
+        - the VM stops after 12 hours
    
 ### Instructions for running:
 
@@ -21,27 +24,23 @@ The human interface to the underlying [Tensorflow](https://www.tensorflow.org/) 
 
   - if you downloaded the ZIP, extract it on your local machine and rename the folder to the name of this repo
 
-**2. Go to google drive, and upload this folder from your local machine**
+**2. Go to Google Drive, and upload this folder from your local machine**
 
-**3. From Drive, open a notebook file with Colaboratory**
+**3. Get the log directory and move to the uploaded Drive folder**
+
+  - click [here](https://drive.google.com/drive/folders/1-MoPlNCasBnr7SPLSL22g26YPQHE1UUR?usp=sharing), and move logdir into drive folder (Reinforcement_Learning-101-demo/)
+
+**4. From Drive, open a notebook file with Colaboratory**
 
   - Double-click some `*.ipynb` file, then choose _Connected Apps - Colaboratory_
 
   - If Colaboratory is not shown, you'll have to first add it from _Open With_, then search _Colab_, then connect. Choose https://colab.research.google.com
 
-**4. From Colab, select runtime, change runtime type, and set hardware accelerator to GPU**
+**5. From Colab, select runtime, change runtime type, and set hardware accelerator to GPU**
 
   - If it won't allocate one, that's fine (it'll just be a bit slower)
   
   - if you are using the GPU, it may well run out of GPU memory, so you'll have to change back to CPU
-
-**5. if you dont have any model checkpoints, you will have to run A3C_workshop_part2.ipynb first**
-
-  - colab isn't optimal to train as the vm stops at 12 hours
-  
-  - it's also hard to get the checkpoints off into your local machine or drive
-  
-  - if you're are taking part in my workshop, I will provide checkpoints from a training session that I did locally
 
 ---
 
