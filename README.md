@@ -29,14 +29,16 @@ The human interface to the underlying [Tensorflow](https://www.tensorflow.org/) 
 
 **3. Get the log directory and move to the uploaded Drive folder**
 
-  - click [here](https://drive.google.com/drive/folders/1-MoPlNCasBnr7SPLSL22g26YPQHE1UUR?usp=sharing), and move logdir into drive folder (Reinforcement_Learning-101-demo/)
+  - click [here](https://drive.google.com/drive/folders/1-MoPlNCasBnr7SPLSL22g26YPQHE1UUR?usp=sharing)
+
+  - move the contents of logdir (run_01-lr_0.0001-nw_24-tmax_50/) into the logdir in your uploaded drive folder (Reinforcement_Learning-101-demo/logdir/)
 
 **4. From Drive, open a notebook file with Colaboratory**
 
   - Double-click some `*.ipynb` file, then choose _Connected Apps - Colaboratory_
 
   - If Colaboratory is not shown, you'll have to first add it from _Open With_, then search _Colab_, then connect. Choose https://colab.research.google.com
-
+  
 **5. From Colab, select runtime, change runtime type, and set hardware accelerator to GPU**
 
   - If it won't allocate one, that's fine (it'll just be a bit slower)
