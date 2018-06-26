@@ -9,14 +9,15 @@ The human interface to the underlying [Tensorflow](https://www.tensorflow.org/) 
 ---
 
 #### Documented Notebooks:
-1. A3C_workshop_part1.ipynb will load a model from a checkpoint, then run and display a game being played
+1. A3C_workshop-part_1.ipynb will load a model from a checkpoint, then run and display a game being played
     - the documentation will teach the NN structure and RL basics (eg. environments, agents, rewards)
     
-2. A3C_workshop_part2.ipynb will train a model, saving checkpoints and logging to tensorboard
+2. A3C_workshop-part_2.ipynb will train a model, saving checkpoints and logging to tensorboard
     - the documentation will teach how updating the model works and more about RL
     - training on Colaboratory isn't recommended
         - the model checkpoints can be difficult to download as the files might be too large
         - the VM stops after 12 hours
+3. A3C_Definitions.ipynb will show definitions and meanings of terms frequently used in the first two notebooks
    
 ### Instructions for running:
 
