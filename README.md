@@ -1,6 +1,8 @@
 # Reinforcement Learning 101
 
-[![Colab in Action](imgs/colab-screenshot.png)](https://www.youtube.com/watch?v=e5VhebMbvuk)
+<a href="https://www.youtube.com/watch?v=e5VhebMbvuk">
+<img src="imgs/colab-screenshot.png" alt="Colab in Action" width="600px"/>
+<a/>
 
 This is a self-contained laboratory session, of a Reinforcement Learning model (A3C) playing [Atari Space Invaders](https://gym.openai.com/envs/SpaceInvaders-v0/).
 
