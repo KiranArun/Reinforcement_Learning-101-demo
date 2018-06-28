@@ -173,7 +173,7 @@ def create_gameplay_video(frames,figsize,save=False):
       return(frame,)
 
     anim = animation.FuncAnimation(fig, animate, init_func=init,
-                                   frames=frames.shape[0], interval=86, 
+                                   frames=frames.shape[0], interval=70, 
                                    blit=True)
 
     if save == True:
