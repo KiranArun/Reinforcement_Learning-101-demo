@@ -23,28 +23,28 @@ cat <<EoF>/usr/local/bin/run
 #!/bin/bash
 
 POSITIONAL=()
-while [[ $# -gt 0 ]]
+while [[ \$# -gt 0 ]]
 do
-key="$1"
+key="\$1"
 
 case $key in
     -g|--gap)
-    GAP="$2"
+    GAP="\$2"
     shift # past argument
     shift # past value
     ;;
     -mc|--model-checkpoint)
-    MODELCHECKPOINT="$2"
+    MODELCHECKPOINT="\$2"
     shift # past argument
     shift # past value
     ;;
     *)    # unknown option
-    POSITIONAL+=("$1") # save it in an array for later
+    POSITIONAL+=("\$1") # save it in an array for later
     shift # past argument
     ;;
 esac
 done
-set -- "${POSITIONAL[@]}" # restore positional parameters
+set -- "\${POSITIONAL[@]}" # restore positional parameters
 
 python3 /content/Reinforcement_Learning-101-demo/display_game.py -g \${GAP} -mc \${MODELCHECKPOINT}
 EoF
