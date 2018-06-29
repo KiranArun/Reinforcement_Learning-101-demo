@@ -27,7 +27,7 @@ while [[ \$# -gt 0 ]]
 do
 key="\$1"
 
-case $key in
+case \$key in
     -g|--gap)
     GAP="\$2"
     shift # past argument
@@ -45,6 +45,16 @@ case $key in
 esac
 done
 set -- "\${POSITIONAL[@]}" # restore positional parameters
+
+if [[ \${GAP} = "" ]]
+then
+	GAP="0.0"
+fi
+
+if [[ \${MODELCHECKPOINT} = "" ]]
+then
+	MODELCHECKPOINT="logdir/run_01-lr_0.0001-nw_24-tmax_50/final_model.ckpt"
+fi
 
 python3 /content/Reinforcement_Learning-101-demo/display_game.py -g \${GAP} -mc \${MODELCHECKPOINT}
 EoF
