@@ -10,6 +10,7 @@ import A3C_helper_functions as helper
 
 parser = argparse.ArgumentParser(description='Play and display game')
 parser.add_argument('-g','--gap', type=float, default=0.0)
+parser.add_argument('-mc','--modelcheckpoint', default='logdir/run_01-lr_0.0001-nw_24-tmax_50/final_model.ckpt')
 args = parser.parse_args()
 
 state_size = 84**2
@@ -18,10 +19,7 @@ num_actions = 6
 model_root_dir = '/content/'
 model_logdir = os.path.join(model_root_dir,'logdir/')
 
-run = 'run_01-lr_0.0001-nw_24-tmax_50'
-checkpoint = 'final_model.ckpt'
-
-model_checkpoint = os.path.join(model_logdir,run+'/'+checkpoint)
+model_checkpoint = args.modelcheckpoint
 
 class AC_Network():
     def __init__(self, state_size, num_actions, scope):

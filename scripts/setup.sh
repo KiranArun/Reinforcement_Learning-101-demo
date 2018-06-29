@@ -21,7 +21,32 @@ echo "web_addr: 4045" > /content/config.yml
 
 cat <<EoF>/usr/local/bin/run
 #!/bin/bash
-python3 /content/Reinforcement_Learning-101-demo/display_game.py -g \$1
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -g|--gap)
+    GAP="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -mc|--model-checkpoint)
+    MODELCHECKPOINT="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
+python3 /content/Reinforcement_Learning-101-demo/display_game.py -g \${GAP} -mc \${MODELCHECKPOINT}"
 EoF
 
 chmod +x /usr/local/bin/run
