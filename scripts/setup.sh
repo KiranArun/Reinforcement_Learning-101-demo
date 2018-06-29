@@ -46,7 +46,7 @@ esac
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
-python3 /content/Reinforcement_Learning-101-demo/display_game.py -g \${GAP} -mc \${MODELCHECKPOINT}"
+python3 /content/Reinforcement_Learning-101-demo/display_game.py -g \${GAP} -mc \${MODELCHECKPOINT}
 EoF
 
 chmod +x /usr/local/bin/run
